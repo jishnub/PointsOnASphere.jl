@@ -1,4 +1,10 @@
 name = "PointsOnASphere"
 uuid = "efc6e1ae-3467-11e9-103f-8bc3b66ed045"
-authors = ["jishnub <jishnuonline@gmail.com>"]
+authors = ["jishnub"]
 version = "0.2.0"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
