@@ -8,8 +8,8 @@ struct Point3D{R<:Real,T<:Real,P<:Real}
 	ϕ :: P
 
 	function Point3D(r::R,θ::T,ϕ::P) where {R,T,P}
-		@assert r > 0 "r must be positive"
-		@assert 0 <= θ <= π "θ should lie in 0 ⩽ θ ⩽ π"
+		@assert r >= zero(r) "r must be non-negative"
+		@assert zero(θ) <= θ <= π "θ should lie in 0 ⩽ θ ⩽ π"
 		new{R,T,P}(r,θ,mod2pi(ϕ))
 	end
 end
@@ -19,7 +19,7 @@ struct Point2D{T<:Real,P<:Real}
 	ϕ :: P
 	
 	function Point2D(θ::T,ϕ::P) where {T,P}
-		@assert 0 <= θ <= π "θ should lie in 0 ⩽ θ ⩽ π"
+		@assert zero(θ) <= θ <= π "θ should lie in 0 ⩽ θ ⩽ π"
 		new{T,P}(θ,mod2pi(ϕ))
 	end
 end
